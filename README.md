@@ -4,7 +4,7 @@
 ![image](https://github.com/user-attachments/assets/13eff4de-f7dc-4bc1-8836-856caacfdf3d)
 
 
-•	Maximum Qubits Simulated: 16
+•	Maximum Qubits Simulated: 16 <br>
 •	Simulation Error on 17 Qubits : 
 ![image](https://github.com/user-attachments/assets/be99452d-7911-45ae-a386-23fb6e38b1db)
 
@@ -14,7 +14,7 @@
 ## Sub Task–2
 ![image](https://github.com/user-attachments/assets/089bf532-1a97-4034-87f0-ed9f2f688d6b)
 
-•	Maximum Qubits Simulated: 31
+•	Maximum Qubits Simulated: 31 <br>
 •	Simulation Error on 32 Qubits : 
 ![image](https://github.com/user-attachments/assets/8f541fa3-d867-4e96-888e-7e6cbfa957af)
 
