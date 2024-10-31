@@ -53,6 +53,9 @@ class My_Quantum_circuit1():
         self.apply_gate(self.h_matrix, qubit_index)
     
     def cx(self, control_qubit, target_qubit):
+        if control_qubit == target_qubit:
+            raise ValueError('Control and target qubits should be different')
+        
         self.check_out_of_index(control_qubit)
         self.check_out_of_index(target_qubit)
         control_qubit = self.get_msb_format(control_qubit)
