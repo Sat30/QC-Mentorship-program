@@ -1,4 +1,9 @@
 # Task-1 QC-Mentorship-program
+**Note** : Qubits follows the Little-Endian Convention <br>
+In 4-qubit circuit <br>
+![image](https://github.com/user-attachments/assets/93aa7e28-cade-45f7-aeea-7ddcd3796b8b)
+- 0th qubit appears on the right in the tensor product
+
 
 ## Sub Task-1
 ![image](https://github.com/user-attachments/assets/13eff4de-f7dc-4bc1-8836-856caacfdf3d)
