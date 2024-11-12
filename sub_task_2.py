@@ -4,6 +4,9 @@ from qiskit import *
 from qiskit.visualization import *
 from qiskit.quantum_info import *
 
+from collections import Counter
+
+
 
 class My_Quantum_circuit2():
     sub_task_info : int = 2
@@ -75,6 +78,35 @@ class My_Quantum_circuit2():
         curr_state = curr_state.reshape((2, ) * (self.num_qubits))
         curr_state = np.moveaxis(curr_state, [0, 1], [control_qubit, target_qubit])        
         self.state = curr_state
+
+    def get_probs(self, qubitindex):
+        Probs = np.zeros(2)
+        for index, value in np.ndenumerate(self.state):
+            if index[qubitindex] == 0:
+                Probs[0] += abs(value)**2
+            else: 
+                Probs[1] += abs(value)**2
+        assert np.isclose(Probs.sum(), 1), 'Probabilities do not sum to 1'
+        return Probs
+    
+    def measure(self, qubitindex : int, shots : int = 1):
+        """
+        Measure the qubit at index qubitindex
+        """
+        self.check_out_of_index(qubitindex)
+        qubitindex = self.get_msb_format(qubitindex)
+        Probs = self.get_probs(qubitindex) 
+        result = np.random.choice([0, 1], p = Probs, size = shots)
+        last_measured_state = result[-1]
+        counts = Counter(result)
+
+        ## set state
+        for index, value in np.ndenumerate(self.state):
+            if index[qubitindex] == last_measured_state:
+                self.state[index] = self.state[index] / np.sqrt(Probs[last_measured_state])
+            else:
+                self.state[index] = 0
         
-        
+        assert np.isclose(np.linalg.norm(self.state), 1), 'State is not normalized'
+        return (counts, last_measured_state)
     
